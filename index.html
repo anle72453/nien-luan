@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha384-xh6iHzBCwzP7y/YntI1pJXQdlAftcEX5FHbJ20c6KlcbwG9EA/l0E5ANkX3GkfZ7" crossorigin="anonymous">
+    <link rel="stylesheet" href="vendor/fontawesome-free-6.5.2-web/css/all.css" type="text/css">
+    <link rel="stylesheet" href="vendor/fontawesome-free-6.5.2-web/css/regular.css" type="text/css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" type="text/css">
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="scipt.js">
+    <title>seconhand</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img width="50%" height="40%" src="image/t1.jpg" alt="">
+        </div>
+        <div class="menu">
+            <li><a href="">QUẦN</a></li>
+            <li><a href="">ÁO</a></li>
+            <li><a href="">ÁO KHOÁC</a></li>
+            <li><a href="">GIÀY</a></li>
+            <li><a href="">PHỤ KIỆN</a></li>
+            <li><a href="">THÔNG TIN</a></li>
+        </div>
+        <div class="button">
+            <li><input placeholder="Tìm kiếm" type="text"></li>
+            <li><i class="fa-solid fa-magnifying-glass"></i></li>
+            <li><i class="fa-solid fa-user"></i></li>
+            <li><i class="fa-solid fa-cart-shopping"></i></li>
+        </div>
+    </header>
+    <section id="slide">
+        <div class="aspect-ratio-169">
+            <img src="image/1.jpg" alt="">
+            <img src="image/3.jpg" alt="">
+            <img src="image/2.webp" alt="">
+            <img src="image/4.jpg" alt="">
+        </div>
+        <div class="dot-father">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+
+    </section>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section logo-contact">
+                <img src="image/t1.jpg" alt="TopZone Logo" class="footer-logo">
+                <p>© 2024 Thế giới seconhand.</p>
+                <p>Địa chỉ: 128 Trần Quang Khải, P. Tân Định, Q.1, TP. Hồ Chí Minh.</p>
+                <p>Điện thoại: 028 38125960</p>
+                <p>Email: cskh@topzone.vn</p>
+            </div>
+            <div class="footer-section">
+                <h3>Sản phẩm</h3>
+                <ul>
+                    <li><a href="/Quần">Quần</a></li>
+                    <li><a href="/Áo">Áo</a></li>
+                    <li><a href="/Áo khoác">Áo khoác</a></li>
+                    <li><a href="/Giày">Giầy</a></li>
+                    <li><a href="/Phụ kiện">Phụ kiện</a></li>
+                    <li><a href="/Thông tin">Thông tin</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Thông tin cửa hàng</h3>
+                <p>T1 Hồ Chí Minh</p>
+                <p>191 Điện Biên Phủ, P. 6, Q. 3, TP. Hồ Chí Minh</p>
+                <p>670 Âu Cơ, P. 10, Q. Tân Bình, TP. Hồ Chí Minh</p>
+                <p>291 Nguyễn Văn Cừ, P.Ngọc Lâm, Q.Long Biên, Hà Nội</p>
+                <p>238 Nguyễn Trãi, P. Trung Văn, Q. Nam Từ Liêm, Hà Nội</p>
+                <p>Thứ Hai - Thứ Bảy: 7:30 AM - 9 PM</p>
+            </div>
+            <div class="footer-section">
+                <h3>Liên hệ</h3>
+                <p>Liên hệ để được hỗ trợ các thông tin</p>
+                <p>1900.9696.42</p>
+                <p>Email: cskh@T1.vn</p>
+                <br>
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+          
+        </div>
+    </footer>
+    <script>
+        const imgPosition = document.querySelectorAll(".aspect-ratio-169 img")
+        const imgContainer = document.querySelector(".aspect-ratio-169")
+        const dotItem = document.querySelectorAll(".dot")
+        let imgNuber = imgPosition.length
+        let index = 0
+        imgPosition.forEach(function(image,index){
+            image.style.left = index*100 + "%";
+            dotItem[index].addEventListener("click",function(){
+                slider(index)
+
+            })
+
+        })
+        function imgslide(){
+            index++;
+            console.log(index)
+            if (index >= imgNuber) {index=0}
+            slider(index)
+           
+
+
+        }
+        function slider (index){
+            imgContainer.style.left = "-" + index*100 + "%"
+            const dotActive = document.querySelector('.active')
+            dotActive.classList.remove("active")
+            dotItem[index].classList.add("active")
+
+        }
+        setInterval(imgslide,5000)
+
+    </script>
+    
+</body>
+</html>
